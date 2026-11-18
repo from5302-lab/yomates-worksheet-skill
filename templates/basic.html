@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><title>○○영어학원 · 중2 내신 대비 문제지</title>
+<!-- 문제지 틀: basic. 설정 표의 대표 색은 :root --brand, 글꼴 '명조 섞기'는 body class="serif-mix", 로고는 머리의 img.logo. 문항은 section.q 하나씩. -->
+<style>
+  @page { size: A4; margin: 15mm 14mm 15mm 14mm; }
+  /* 대표 색은 --brand 하나만 바꾼다. 머리 줄·문항 번호·상자 테두리에만 쓰인다. */
+  :root { --brand: #1f4e8c; --ink: #111418; --sub: #4a525e; --line: #b9c0c9; --soft: #f4f6f8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; color: var(--ink); }
+  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+         font-size: 10.5pt; line-height: 1.6; word-break: keep-all; }
+  .en { font-family: Georgia, "Times New Roman", serif; }
+  /* 글꼴 느낌 '명조 섞기': body 에 class="serif-mix" 를 붙이면 지문·제목이 명조 */
+  .serif-mix .passage, .serif-mix h1 { font-family: Georgia, "AppleMyungjo", "Batang", "Noto Serif KR", serif; }
+  .logo { height: 12mm; width: auto; display: block; }
+  u { text-underline-offset: 3px; }
+
+  /* 지문: 문장마다 왼쪽에 줄 번호 */
+  .passage .label { font-size: 9pt; font-weight: 700; color: var(--brand); margin-bottom: 4px; }
+  ol.lines { list-style: none; margin: 0; padding: 0; counter-reset: ln; }
+  ol.lines li { counter-increment: ln; position: relative; padding-left: 26px; font-size: 11pt; line-height: 1.75; }
+  ol.lines li::before { content: counter(ln); position: absolute; left: 0; top: 0.28em; width: 18px;
+                        text-align: right; font-family: "Apple SD Gothic Neo", sans-serif; font-size: 8pt; color: var(--sub); }
+
+  /* 문항 */
+  .q { break-inside: avoid; margin-bottom: 6mm; }
+  .stem { display: flex; gap: 8px; align-items: baseline; margin-bottom: 5px; }
+  .no { flex-shrink: 0; min-width: 20px; font-weight: 800; color: var(--brand); }
+  .type { font-size: 8.5pt; color: var(--sub); margin-left: 4px; white-space: nowrap; }
+  .pts { font-size: 9pt; color: var(--sub); white-space: nowrap; margin-left: 4px; }
+  ol.ch { list-style: none; margin: 0; padding-left: 28px; }
+  ol.ch li { margin: 1px 0; padding-left: 1.4em; text-indent: -1.4em; }
+  ol.ch.row { display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 8px; }
+  ol.ch.row2 { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 8px; }
+  .given { border-left: 2px solid var(--line); padding: 3px 10px; margin: 4px 0 6px 28px; }
+  .cond { margin: 4px 0 6px 28px; font-size: 9.5pt; color: var(--sub); }
+  .write { margin-left: 28px; }
+  .write div { height: 9mm; border-bottom: 1px solid var(--ink); }
+
+  /* 정답·해설: 늘 새 장 */
+  .answers { break-before: page; }
+  .answers h2 { font-size: 13pt; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--brand); }
+  .ans { break-inside: avoid; margin-bottom: 4mm; }
+  .ans .top { font-weight: 700; } .ans .top .key { color: var(--brand); }
+  .ans p { margin: 2px 0; } .ans .ev { color: var(--sub); font-size: 9.5pt; }
+  .foot { margin-top: 5mm; padding-top: 5px; border-top: 1px solid var(--line); font-size: 8pt; color: var(--sub); text-align: right; }
+
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+          border-bottom: 2px solid var(--brand); padding-bottom: 8px; margin-bottom: 5mm; }
+  .head h1 { margin: 0; font-size: 17pt; line-height: 1.3; }
+  .head .meta { margin-top: 3px; color: var(--sub); font-size: 9.5pt; }
+  .who { display: flex; gap: 10px; flex-shrink: 0; }
+  .who div { display: flex; align-items: flex-end; gap: 6px; font-size: 9.5pt; color: var(--sub); }
+  .who span { display: inline-block; width: 30mm; height: 8mm; border-bottom: 1px solid var(--ink); }
+  .who span.s { width: 22mm; }
+  .passage { border: 1px solid var(--brand); border-radius: 4px; padding: 10px 14px; margin-bottom: 5mm; }
+  ol.lines li { line-height: 1.65; }
+  .q { margin-bottom: 5mm; }
+</style></head>
+<body>
+<header class="head"><div><!-- 로고가 있으면: <img class="logo" src="로고.png" alt=""> --><h1>○○영어학원 · 중2 내신 대비 문제지</h1><div class="meta">중2 · 영어 · ○○출판사 3과 문법으로 새로 쓴 지문 · 5문제</div></div><div class="who"><div>이름 <span></span></div><div>날짜 <span class="s"></span></div></div></header><div class="passage"><div class="label">[1~5] 다음 글을 읽고 물음에 답하시오.</div><ol class="lines en"><li>Last Saturday, my brother and I rode our bikes to Sunflower Lake.</li><li>It was <u>① much farther</u> than we expected.</li><li>We planned <u>② arriving</u> before lunch, but the road was steep and hot.</li><li>Halfway there, my brother's tire <u>③ went</u> flat.</li><li>We didn't know what to do, <b>(A)</b> ________ we stopped at a small shop to ask for help.</li><li>The owner, Mr. Park, <u>④ fixed</u> the tire and gave us cold water.</li><li>He said, "The lake looks most beautiful in the late afternoon."</li><li>He was right.</li><li>When we finally got there, the sky turned orange and the water was shining.</li><li>It was <u>⑤ the longest</u> ride of my life, but also the best one.</li></ol></div><section class="q"><div class="stem"><span class="no">1</span><span>윗글의 밑줄 친 ①~⑤ 중, 어법상 <b>틀린</b> 것은? <span class="type">어법</span></span></div><ol class="ch row en"><li>① much farther</li><li>② arriving</li><li>③ went</li><li>④ fixed</li><li>⑤ the longest</li></ol></section><section class="q"><div class="stem"><span class="no">2</span><span>윗글의 빈칸 (A)에 들어갈 말로 가장 알맞은 것은? <span class="type">빈칸</span></span></div><ol class="ch row en"><li>① so</li><li>② or</li><li>③ because</li><li>④ although</li><li>⑤ unless</li></ol></section><section class="q"><div class="stem"><span class="no">3</span><span>윗글의 내용과 일치하지 <b>않는</b> 것은? <span class="type">내용 일치</span></span></div><ol class="ch"><li>① 글쓴이는 형제와 함께 자전거를 탔다.</li><li>② 두 사람은 점심 전에 도착할 계획이었다.</li><li>③ 가는 길에 글쓴이의 자전거 바퀴에 바람이 빠졌다.</li><li>④ 가게 주인이 바퀴를 고치고 시원한 물을 주었다.</li><li>⑤ 호수에 도착했을 때 하늘이 주황색으로 변했다.</li></ol></section><section class="q"><div class="stem"><span class="no">4</span><span>주어진 문장 다음에 이어질 글의 순서로 가장 알맞은 것은? <span class="type">문장 배열</span></span></div><div class="given"><span class='en'>Halfway there, my brother's tire went flat.</span></div><div class="given"><span class='en'>(A) The owner fixed the tire and gave us cold water.<br>(B) We stopped at a small shop to ask for help.<br>(C) When we finally got to the lake, the sky turned orange.</span></div><ol class="ch row en"><li>① (A)-(B)-(C)</li><li>② (A)-(C)-(B)</li><li>③ (B)-(A)-(C)</li><li>④ (B)-(C)-(A)</li><li>⑤ (C)-(B)-(A)</li></ol></section><section class="q"><div class="stem"><span class="no">5</span><span>다음 우리말과 뜻이 같도록 〈조건〉에 맞게 영어로 쓰시오. <span class="type">서술형</span></span></div><div class="given">그 길은 우리가 예상했던 것보다 훨씬 더 가팔랐다.</div><div class="cond">〈조건〉 ① steep, than, expected를 쓸 것 ② 비교급을 강조하는 말 한 단어를 넣을 것 ③ 8단어로 쓸 것</div><div class="write"><div></div><div></div></div></section><div class="foot">AI가 만들었어요 · 연습용</div>
+<div class="answers">
+  <h2>정답과 해설</h2>
+  <div class="ans"><div class="top">1. 정답 <span class="key">②</span></div>
+    <p class="ev">근거: 3줄 <span class="en">We planned <u>arriving</u> before lunch</span></p>
+    <p>plan은 뒤에 to부정사를 쓰는 동사예요. arriving을 to arrive로 고쳐야 해요. ①은 much가 비교급 farther를 강조해서 맞고, ⑤는 of my life와 함께 쓴 최상급이라 맞아요.</p></div>
+  <div class="ans"><div class="top">2. 정답 <span class="key">①</span></div>
+    <p class="ev">근거: 5줄 <span class="en">We didn't know what to do, (A) we stopped at a small shop to ask for help.</span></p>
+    <p>어떻게 할지 몰라서 '그래서' 가게에 들렀다는 흐름이라 so가 알맞아요. because를 넣으면 가게에 들러서 어떻게 할지 몰랐다는 뜻이 되어 앞뒤가 바뀌어요.</p></div>
+  <div class="ans"><div class="top">3. 정답 <span class="key">③</span></div>
+    <p class="ev">근거: 4줄 <span class="en">Halfway there, my brother's tire went flat.</span></p>
+    <p>바람이 빠진 것은 글쓴이가 아니라 형제(my brother)의 자전거 바퀴예요.</p></div>
+  <div class="ans"><div class="top">4. 정답 <span class="key">③</span></div>
+    <p class="ev">근거: 4~6줄, 9줄</p>
+    <p>(A)의 The owner는 (B)의 a small shop이 먼저 나와야 누구인지 알 수 있어요. 그래서 (B) 다음 (A), 마지막이 호수에 도착한 (C)예요.</p></div>
+  <div class="ans"><div class="top">5. 모범 답 <span class="key en">The road was much steeper than we expected.</span></div>
+    <p>steep의 비교급 steeper 앞에 강조하는 말 much를 넣어요. much 대신 even, far, still을 써도 정답이에요. very는 비교급을 강조하지 못해서 틀려요.</p>
+    <p class="ev">채점: 비교급 steeper 1점 · 강조하는 말 1점 · than we expected 1점 · 8단어 1점</p></div>
+  <div class="foot">AI가 만들었어요 · 연습용</div>
+</div>
+</body></html>
