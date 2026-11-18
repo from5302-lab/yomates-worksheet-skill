@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>{{제목}}</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+  :root {
+    --ink: #1d232b; --sub: #5b6573; --line: #c9cfd7; --soft: #f3f5f8;
+    --accent: #1f4e8c; --r: 6px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; color: var(--ink); }
+  body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+         font-size: 10.5pt; line-height: 1.6; word-break: keep-all; }
+  .en { font-family: Georgia, "Times New Roman", serif; }
+
+  /* 머리 */
+  .head { display: flex; justify-content: space-between; align-items: flex-end;
+          border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 14px; gap: 16px; }
+  .head h1 { margin: 0; font-size: 17pt; line-height: 1.3; }
+  .head .meta { margin-top: 4px; color: var(--sub); font-size: 9.5pt; }
+  .who { display: flex; gap: 10px; flex-shrink: 0; }
+  .who div { display: flex; align-items: flex-end; gap: 6px; font-size: 9.5pt; color: var(--sub); }
+  .who span.box { display: inline-block; width: 30mm; height: 8mm; border-bottom: 1px solid var(--ink); }
+  .who span.box.short { width: 22mm; }
+
+  /* 지문 */
+  .passage { border: 1px solid var(--line); border-radius: var(--r); background: var(--soft);
+             padding: 12px 14px; margin-bottom: 16px; }
+  .passage .label { font-size: 9pt; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+  .passage p { margin: 0 0 6px; font-size: 11pt; line-height: 1.75; }
+  .passage p:last-child { margin-bottom: 0; }
+  u { text-underline-offset: 3px; }
+
+  /* 문제 */
+  .q { break-inside: avoid; margin-bottom: 16px; }
+  .q .stem { display: flex; gap: 8px; align-items: baseline; margin-bottom: 6px; }
+  .q .no { flex-shrink: 0; font-weight: 700; color: var(--accent); min-width: 22px; }
+  .q .stem b { font-weight: 700; }
+  .q .type { font-size: 8.5pt; color: var(--sub); border: 1px solid var(--line); border-radius: 4px;
+             padding: 0 5px; margin-left: 6px; white-space: nowrap; }
+  .q ol.ch { list-style: none; margin: 0; padding-left: 30px; }
+  .q ol.ch li { margin: 2px 0; }
+  /* 짧은 보기는 한 줄에: class="ch row" */
+  .q ol.ch.row { display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 10px; }
+  .q .given { border-left: 3px solid var(--line); padding: 4px 10px; margin: 4px 0 6px 30px; }
+  .q .write { margin-left: 30px; height: 14mm; border-bottom: 1px solid var(--ink); }
+  .q .cond { margin: 4px 0 6px 30px; font-size: 9.5pt; color: var(--sub); }
+
+  /* 정답·해설 (새 장) */
+  .answers { break-before: page; }
+  .answers h2 { font-size: 13pt; margin: 0 0 10px; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+  .ans { break-inside: avoid; margin-bottom: 12px; }
+  .ans .top { font-weight: 700; }
+  .ans .top .key { color: var(--accent); }
+  .ans p { margin: 2px 0; }
+  .ans .why { color: var(--ink); }
+  .ans .ev { color: var(--sub); font-size: 9.5pt; }
+
+  .foot { margin-top: 18px; padding-top: 6px; border-top: 1px solid var(--line);
+          font-size: 8pt; color: var(--sub); text-align: right; }
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div>
+    <h1>{{제목}}</h1>
+    <div class="meta">{{학년}} · {{과목}} · {{단원 또는 교재}} · {{문제 수}}문제</div>
+  </div>
+  <div class="who">
+    <div>이름 <span class="box"></span></div>
+    <div>날짜 <span class="box short"></span></div>
+  </div>
+</header>
+
+<div class="passage">
+  <div class="label">다음 글을 읽고 물음에 답하시오.</div>
+  <p class="en">{{지문 문단}}</p>
+</div>
+
+<!-- 문제 하나 = section.q 하나. 객관식 예시 -->
+<section class="q">
+  <div class="stem"><span class="no">1</span><span>{{발문}} <span class="type">{{유형}}</span></span></div>
+  <ol class="ch en">
+    <li>① {{보기}}</li><li>② {{보기}}</li><li>③ {{보기}}</li><li>④ {{보기}}</li><li>⑤ {{보기}}</li>
+  </ol>
+</section>
+
+<!-- 서술형 예시 -->
+<section class="q">
+  <div class="stem"><span class="no">2</span><span>{{발문}} <span class="type">서술형</span></span></div>
+  <div class="cond">조건: {{조건}}</div>
+  <div class="write"></div>
+</section>
+
+<div class="foot">AI가 만들었어요 · 연습용</div>
+
+<div class="answers">
+  <h2>정답과 해설</h2>
+  <div class="ans">
+    <div class="top">1. 정답 <span class="key">{{정답}}</span></div>
+    <p class="ev">근거: <span class="en">{{지문 근거 문장}}</span></p>
+    <p class="why">{{왜 그 답인지}}</p>
+  </div>
+  <div class="foot">AI가 만들었어요 · 연습용</div>
+</div>
+
+</body>
+</html>
